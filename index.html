@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeffry Percusión – Timbalero Caleño</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Bebas+Neue&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --negro: #0a0a0a;
+    --negro2: #111111;
+    --rojo: #c0001a;
+    --rojo-hover: #e0001e;
+    --dorado: #c9970a;
+    --dorado-claro: #f0c040;
+    --dorado-suave: #e8b84b;
+    --blanco: #f5f0e8;
+    --gris: #2a2a2a;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--negro);
+    color: var(--blanco);
+    font-family: 'Lato', sans-serif;
+    overflow-x: hidden;
+  }
+
+  /* TEXTURA DE FONDO */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(201,151,10,0.03) 2px, rgba(201,151,10,0.03) 4px),
+      repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(201,151,10,0.02) 2px, rgba(201,151,10,0.02) 4px);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  section, header, footer { position: relative; z-index: 1; }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 24px 60px;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 30%, rgba(192,0,26,0.18) 0%, transparent 70%),
+      linear-gradient(180deg, #0a0a0a 0%, #110005 50%, #0a0a0a 100%);
+    border-bottom: 2px solid var(--dorado);
+    overflow: hidden;
+  }
+
+  .hero-ornament {
+    font-size: 48px;
+    letter-spacing: 24px;
+    color: var(--dorado);
+    opacity: 0.4;
+    margin-bottom: 12px;
+    animation: fadeInDown 0.8s ease both;
+  }
+
+  .hero-tag {
+    font-family: 'Lato', sans-serif;
+    font-weight: 300;
+    font-size: 13px;
+    letter-spacing: 6px;
+    text-transform: uppercase;
+    color: var(--dorado-suave);
+    margin-bottom: 20px;
+    animation: fadeInDown 0.9s ease both;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(72px, 16vw, 160px);
+    line-height: 0.9;
+    letter-spacing: 4px;
+    color: var(--blanco);
+    text-shadow: 0 0 60px rgba(192,0,26,0.5), 0 0 120px rgba(192,0,26,0.2);
+    animation: fadeInUp 0.8s ease 0.1s both;
+  }
+
+  .hero-title span {
+    display: block;
+    color: var(--rojo);
+    text-shadow: 0 0 40px rgba(192,0,26,0.8);
+  }
+
+  .hero-subtitle {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(16px, 3vw, 22px);
+    font-weight: 400;
+    font-style: italic;
+    color: var(--dorado-suave);
+    margin: 24px 0 12px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+    color: rgba(245,240,232,0.65);
+    max-width: 560px;
+    line-height: 1.7;
+    margin: 0 auto 40px;
+    animation: fadeInUp 0.8s ease 0.3s both;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    animation: fadeInUp 0.8s ease 0.4s both;
+  }
+
+  .btn-primary {
+    background: var(--rojo);
+    color: #fff;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .btn-primary:hover { background: var(--rojo-hover); transform: translateY(-2px); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--dorado-suave);
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    border: 1.5px solid var(--dorado);
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, transform 0.15s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .btn-secondary:hover { background: rgba(201,151,10,0.15); color: var(--dorado-claro); transform: translateY(-2px); }
+
+  .hero-location {
+    margin-top: 48px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.35);
+    animation: fadeInUp 0.8s ease 0.5s both;
+  }
+
+  .hero-location span { color: var(--dorado); }
+
+  /* Línea decorativa */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 40px;
+    margin: 60px auto;
+    max-width: 800px;
+  }
+  .divider-line { flex: 1; height: 1px; background: linear-gradient(90deg, transparent, var(--dorado), transparent); }
+  .divider-icon { color: var(--dorado); font-size: 20px; }
+
+  /* ===== SECCIÓN GENERAL ===== */
+  .section {
+    padding: 80px 24px;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--rojo);
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(40px, 7vw, 72px);
+    letter-spacing: 2px;
+    color: var(--blanco);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--dorado);
+  }
+
+  /* ===== SERVICIOS (ÍCONOS) ===== */
+  .servicios-bg {
+    background: linear-gradient(180deg, #0a0a0a 0%, #110000 50%, #0a0a0a 100%);
+    border-top: 1px solid rgba(201,151,10,0.2);
+    border-bottom: 1px solid rgba(201,151,10,0.2);
+  }
+
+  .servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2px;
+    margin-top: 48px;
+  }
+
+  .servicio-item {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(201,151,10,0.1);
+    padding: 32px 24px;
+    text-align: center;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s;
+    cursor: default;
+  }
+
+  .servicio-item:hover {
+    background: rgba(192,0,26,0.08);
+    border-color: rgba(192,0,26,0.4);
+    transform: translateY(-4px);
+  }
+
+  .servicio-icon { font-size: 36px; margin-bottom: 16px; }
+  .servicio-text {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--blanco);
+    line-height: 1.4;
+  }
+
+  /* ===== PAQUETES ===== */
+  .paquetes-bg { background: var(--negro); }
+
+  .paquetes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 56px;
+  }
+
+  .paquete-card {
+    background: var(--negro2);
+    border: 1px solid rgba(201,151,10,0.2);
+    padding: 40px 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .paquete-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--dorado);
+  }
+
+  .paquete-card.featured {
+    border-color: var(--rojo);
+    background: linear-gradient(160deg, #1a0005, #0a0a0a);
+  }
+
+  .paquete-card.featured::before { background: var(--rojo); }
+
+  .paquete-card:hover { border-color: var(--dorado-suave); transform: translateY(-6px); }
+  .paquete-card.featured:hover { border-color: var(--rojo-hover); }
+
+  .paquete-badge {
+    display: inline-block;
+    background: var(--rojo);
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    margin-bottom: 20px;
+  }
+
+  .paquete-nombre {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    letter-spacing: 3px;
+    color: var(--blanco);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .paquete-ideal {
+    font-size: 12px;
+    color: rgba(245,240,232,0.45);
+    letter-spacing: 1px;
+    margin-bottom: 28px;
+    font-style: italic;
+  }
+
+  .paquete-precio {
+    margin-bottom: 28px;
+  }
+
+  .precio-desde {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--dorado);
+    opacity: 0.7;
+  }
+
+  .precio-valor {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--dorado-claro);
+    line-height: 1.1;
+  }
+
+  .precio-nota {
+    font-size: 12px;
+    color: rgba(245,240,232,0.4);
+    margin-top: 4px;
+  }
+
+  .paquete-divider {
+    height: 1px;
+    background: rgba(201,151,10,0.15);
+    margin: 24px 0;
+  }
+
+  .paquete-incluye {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .paquete-incluye li {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 14px;
+    color: rgba(245,240,232,0.8);
+    line-height: 1.4;
+  }
+
+  .check {
+    color: var(--dorado);
+    font-size: 16px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .paquete-cta {
+    margin-top: 36px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 14px;
+    border: 1.5px solid var(--dorado);
+    color: var(--dorado-suave);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .paquete-card.featured .paquete-cta {
+    background: var(--rojo);
+    border-color: var(--rojo);
+    color: #fff;
+  }
+
+  .paquete-cta:hover { background: var(--dorado); color: var(--negro); border-color: var(--dorado); }
+  .paquete-card.featured .paquete-cta:hover { background: var(--rojo-hover); border-color: var(--rojo-hover); color: #fff; }
+
+  /* ===== POR QUÉ ===== */
+  .porque-bg {
+    background: linear-gradient(180deg, #0a0a0a 0%, #0d0005 100%);
+    border-top: 1px solid rgba(201,151,10,0.15);
+    border-bottom: 1px solid rgba(201,151,10,0.15);
+  }
+
+  .porque-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 32px;
+    margin-top: 52px;
+  }
+
+  .porque-item {
+    text-align: center;
+  }
+
+  .porque-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 60px;
+    color: rgba(192,0,26,0.15);
+    line-height: 1;
+    margin-bottom: -10px;
+  }
+
+  .porque-icon { font-size: 28px; margin-bottom: 12px; }
+
+  .porque-titulo {
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--dorado-suave);
+    margin-bottom: 8px;
+  }
+
+  .porque-desc {
+    font-size: 13px;
+    color: rgba(245,240,232,0.5);
+    line-height: 1.6;
+  }
+
+  /* ===== QUOTE ===== */
+  .quote-section {
+    text-align: center;
+    padding: 80px 40px;
+    background: linear-gradient(135deg, #110000, #0a0a0a, #0d0800);
+    border-top: 1px solid rgba(192,0,26,0.3);
+    border-bottom: 1px solid rgba(192,0,26,0.3);
+  }
+
+  .quote-text {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(22px, 4vw, 38px);
+    font-weight: 700;
+    font-style: italic;
+    color: var(--blanco);
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.4;
+  }
+
+  .quote-text em {
+    font-style: normal;
+    color: var(--dorado-claro);
+  }
+
+  .quote-author {
+    margin-top: 20px;
+    font-size: 12px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--rojo);
+  }
+
+  /* ===== CONTACTO ===== */
+  .contacto-bg { background: var(--negro); }
+
+  .contacto-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    margin-top: 52px;
+    align-items: start;
+  }
+
+  @media (max-width: 720px) {
+    .contacto-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+
+  .contacto-info { display: flex; flex-direction: column; gap: 24px; }
+
+  .contacto-item {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 24px;
+    border: 1px solid rgba(201,151,10,0.15);
+    background: rgba(255,255,255,0.02);
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+  }
+
+  .contacto-item:hover {
+    border-color: var(--dorado);
+    background: rgba(201,151,10,0.05);
+  }
+
+  .contacto-item-icon { font-size: 24px; color: var(--dorado); flex-shrink: 0; }
+
+  .contacto-item-label {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+    margin-bottom: 4px;
+  }
+
+  .contacto-item-value {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--blanco);
+  }
+
+  .contacto-form { display: flex; flex-direction: column; gap: 16px; }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+
+  .form-label {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.4);
+  }
+
+  .form-input, .form-textarea, .form-select {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(201,151,10,0.2);
+    color: var(--blanco);
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .form-input:focus, .form-textarea:focus, .form-select:focus {
+    border-color: var(--dorado);
+    background: rgba(201,151,10,0.05);
+  }
+
+  .form-textarea { resize: vertical; min-height: 100px; }
+
+  .form-select option { background: #111; }
+
+  .form-btn {
+    margin-top: 8px;
+    background: var(--rojo);
+    color: #fff;
+    border: none;
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 16px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .form-btn:hover { background: var(--rojo-hover); transform: translateY(-2px); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    text-align: center;
+    padding: 48px 24px 32px;
+    border-top: 1px solid rgba(201,151,10,0.2);
+    background: #060606;
+  }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    letter-spacing: 4px;
+    color: var(--dorado);
+    margin-bottom: 8px;
+  }
+
+  .footer-tagline {
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(245,240,232,0.3);
+    margin-bottom: 24px;
+  }
+
+  .footer-social {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .footer-social a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: rgba(245,240,232,0.4);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
+
+  .footer-social a:hover { color: var(--dorado-suave); }
+
+  .footer-copy {
+    font-size: 11px;
+    color: rgba(245,240,232,0.2);
+  }
+
+  /* ===== NAV FLOTANTE ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 40px;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,151,10,0.15);
+    transition: padding 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 3px;
+    color: var(--dorado);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(245,240,232,0.6);
+    text-decoration: none;
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--dorado-suave); }
+
+  .nav-cta {
+    background: var(--rojo);
+    color: #fff !important;
+    padding: 8px 20px;
+    letter-spacing: 2px;
+    font-weight: 700 !important;
+    font-size: 12px !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: background 0.2s !important;
+    clip-path: polygon(6px 0%, 100% 0%, calc(100% - 6px) 100%, 0% 100%);
+  }
+
+  .nav-cta:hover { background: var(--rojo-hover) !important; color: #fff !important; }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    nav { padding: 14px 20px; }
+    .servicios-grid { grid-template-columns: repeat(2, 1fr); }
+    .paquetes-grid { grid-template-columns: 1fr; }
+    .porque-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  /* ===== ANIMACIONES ===== */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* WhatsApp sticky */
+  .whatsapp-btn {
+    position: fixed;
+    bottom: 28px;
+    right: 24px;
+    z-index: 200;
+    background: #25D366;
+    color: #fff;
+    border-radius: 50%;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    text-decoration: none;
+    box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .whatsapp-btn:hover { transform: scale(1.1); box-shadow: 0 6px 28px rgba(37,211,102,0.5); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Jeffry Percusión</a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#paquetes">Paquetes</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/573180730061?text=Hola!%20Vi%20tu%20portafolio%20y%20quiero%20contratar%20un%20show" class="nav-cta" target="_blank">Cotizar Show</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <p class="hero-ornament">♩ ♪ ♫ ♬</p>
+  <p class="hero-tag">Portafolio de Servicios</p>
+  <h1 class="hero-title">
+    Jeffry<span>Percusión</span>
+  </h1>
+  <p class="hero-subtitle">Timbalero caleño — Percusión latina en vivo</p>
+  <p class="hero-desc">Shows de timbal y percusión latina para eventos, fiestas, discotecas y celebraciones privadas. Ritmo, energía y espectáculo que conecta con el público.</p>
+  <div class="hero-ctas">
+    <a href="#paquetes" class="btn-primary">Ver Paquetes</a>
+    <a href="https://wa.me/573180730061?text=Hola!%20Vi%20tu%20portafolio%20y%20quiero%20contratar%20un%20show" class="btn-secondary" target="_blank">📲 Cotizar Ahora</a>
+  </div>
+  <p class="hero-location">📍 <span>Cali, Colombia</span> — Disponible para todo el Valle del Cauca</p>
+</header>
+
+<!-- DIVISOR -->
+<div class="divider reveal">
+  <div class="divider-line"></div>
+  <span class="divider-icon">♦</span>
+  <div class="divider-line"></div>
+</div>
+
+<!-- SERVICIOS -->
+<div class="servicios-bg" id="servicios">
+  <div class="section">
+    <p class="section-label reveal">¿Qué ofrecemos?</p>
+    <h2 class="section-title reveal">Experiencia <em>en vivo</em></h2>
+    <div class="servicios-grid">
+      <div class="servicio-item reveal">
+        <div class="servicio-icon">🎵</div>
+        <p class="servicio-text">Show en vivo<br>Timbal & Percusión</p>
+      </div>
+      <div class="servicio-item reveal">
+        <div class="servicio-icon">🎉</div>
+        <p class="servicio-text">Animación para<br>eventos y fiestas</p>
+      </div>
+      <div class="servicio-item reveal">
+        <div class="servicio-icon">💃</div>
+        <p class="servicio-text">Ambiente latino<br>con presencia en tarima</p>
+      </div>
+      <div class="servicio-item reveal">
+        <div class="servicio-icon">🔥</div>
+        <p class="servicio-text">Discotecas, bodas<br>y eventos privados</p>
+      </div>
+      <div class="servicio-item reveal">
+        <div class="servicio-icon">🤝</div>
+        <p class="servicio-text">Colaboración con DJs,<br>bailarines y agrupaciones</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- PAQUETES -->
+<div class="paquetes-bg" id="paquetes">
+  <div class="section">
+    <p class="section-label reveal">Paquetes disponibles</p>
+    <h2 class="section-title reveal">Elige tu <em>Show</em></h2>
+
+    <div class="paquetes-grid">
+
+      <!-- BASIC -->
+      <div class="paquete-card reveal">
+        <p class="paquete-nombre">Basic</p>
+        <p class="paquete-ideal">Ideal para eventos pequeños y reuniones privadas</p>
+        <div class="paquete-precio">
+          <p class="precio-desde">Valor</p>
+          <p class="precio-valor">$180.000 COP</p>
+          <p class="precio-nota">⏰ 1 hora · Hora adicional: $40.000 COP</p>
+        </div>
+        <div class="paquete-divider"></div>
+        <ul class="paquete-incluye">
+          <li><span class="check">✦</span>Show de timbal en vivo</li>
+          <li><span class="check">✦</span>Animación básica del público</li>
+          <li><span class="check">✦</span>Presentación individual</li>
+        </ul>
+        <p style="margin-top:20px; font-size:12px; font-style:italic; color:rgba(245,240,232,0.35);">Perfecto para cumpleaños, reuniones familiares y celebraciones pequeñas.</p>
+        <a href="https://wa.me/573180730061?text=Hola!%20Me%20interesa%20el%20paquete%20BASIC" target="_blank" class="paquete-cta">Contratar Basic</a>
+      </div>
+
+      <!-- PRO -->
+      <div class="paquete-card featured reveal">
+        <span class="paquete-badge">Más Popular</span>
+        <p class="paquete-nombre">Pro</p>
+        <p class="paquete-ideal">Más energía y experiencia para tu evento</p>
+        <div class="paquete-precio">
+          <p class="precio-desde">Desde</p>
+          <p class="precio-valor">$2.600.000 COP</p>
+          <p class="precio-nota">🎵 1 set de 5 canciones en vivo</p>
+        </div>
+        <div class="paquete-divider"></div>
+        <ul class="paquete-incluye">
+          <li><span class="check">✦</span>Orquesta formato base (rítmico)</li>
+          <li><span class="check">✦</span>Conga, timbal y bongó</li>
+          <li><span class="check">✦</span>1 set musical en vivo</li>
+          <li><span class="check">✦</span>Repertorio salsa</li>
+          <li><span class="check">✦</span>Ambiente bailable y animación</li>
+          <li><span class="check">✦</span>Sonido profesional (cabinas)</li>
+          <li><span class="check">✦</span>Pareja de bailarines</li>
+        </ul>
+        <p style="margin-top:20px; font-size:12px; font-style:italic; color:rgba(245,240,232,0.35);">Ideal para fiestas privadas, eventos empresariales y celebraciones sociales.</p>
+        <a href="https://wa.me/573180730061?text=Hola!%20Me%20interesa%20el%20paquete%20PRO" target="_blank" class="paquete-cta">Contratar Pro</a>
+      </div>
+
+      <!-- PLUS -->
+      <div class="paquete-card reveal">
+        <p class="paquete-nombre">Plus</p>
+        <p class="paquete-ideal">Experiencia completa y show premium</p>
+        <div class="paquete-precio">
+          <p class="precio-desde">Desde</p>
+          <p class="precio-valor">$4.900.000 COP</p>
+          <p class="precio-nota">🎵 1 set de 5 canciones en vivo</p>
+        </div>
+        <div class="paquete-divider"></div>
+        <ul class="paquete-incluye">
+          <li><span class="check">✦</span>Orquesta formato show completa</li>
+          <li><span class="check">✦</span>Vientos: trompeta, trombón y saxofón</li>
+          <li><span class="check">✦</span>Percusión: conga, timbal, bongó</li>
+          <li><span class="check">✦</span>Piano y bajo en vivo</li>
+          <li><span class="check">✦</span>3 cantantes en vivo</li>
+          <li><span class="check">✦</span>Repertorio salsa + crossover</li>
+          <li><span class="check">✦</span>Animación e interacción con el público</li>
+          <li><span class="check">✦</span>Sonido profesional</li>
+          <li><span class="check">✦</span>Pareja de bailarines</li>
+        </ul>
+        <p style="margin-top:20px; font-size:12px; font-style:italic; color:rgba(245,240,232,0.35);">Perfecto para empresariales, discotecas, lanzamientos y celebraciones premium.</p>
+        <a href="https://wa.me/573180730061?text=Hola!%20Me%20interesa%20el%20paquete%20PLUS" target="_blank" class="paquete-cta">Contratar Plus</a>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- QUOTE -->
+<div class="quote-section reveal">
+  <p class="quote-text">"Llevamos <em>ritmo, energía y espectáculo</em> a tu evento."</p>
+  <p class="quote-author">— Jeffry Percusión · Cali, Colombia</p>
+</div>
+
+<!-- POR QUÉ -->
+<div class="porque-bg">
+  <div class="section">
+    <p class="section-label reveal">¿Por qué elegirnos?</p>
+    <h2 class="section-title reveal">La diferencia <em>se siente</em></h2>
+    <div class="porque-grid">
+      <div class="porque-item reveal">
+        <p class="porque-num">01</p>
+        <p class="porque-icon">⚡</p>
+        <p class="porque-titulo">Energía en vivo</p>
+        <p class="porque-desc">Cada show es único. El ritmo en vivo transforma cualquier espacio.</p>
+      </div>
+      <div class="porque-item reveal">
+        <p class="porque-num">02</p>
+        <p class="porque-icon">🎯</p>
+        <p class="porque-titulo">Shows personalizados</p>
+        <p class="porque-desc">Adaptamos el repertorio y la energía al tipo de evento y público.</p>
+      </div>
+      <div class="porque-item reveal">
+        <p class="porque-num">03</p>
+        <p class="porque-icon">⏱️</p>
+        <p class="porque-titulo">Puntualidad total</p>
+        <p class="porque-desc">Compromiso y profesionalismo desde la planificación hasta el cierre.</p>
+      </div>
+      <div class="porque-item reveal">
+        <p class="porque-num">04</p>
+        <p class="porque-icon">🌟</p>
+        <p class="porque-titulo">Experiencia en tarima</p>
+        <p class="porque-desc">Años de presencia en eventos, discotecas y celebraciones de Cali.</p>
+      </div>
+      <div class="porque-item reveal">
+        <p class="porque-num">05</p>
+        <p class="porque-icon">💃</p>
+        <p class="porque-titulo">Ritmo que conecta</p>
+        <p class="porque-desc">La salsa caleña que mueve a la gente desde la primera nota.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACTO -->
+<div class="contacto-bg" id="contacto">
+  <div class="section">
+    <p class="section-label reveal">¿Listo para contratar?</p>
+    <h2 class="section-title reveal">Hablemos de <em>tu evento</em></h2>
+
+    <div class="contacto-grid">
+      <div class="contacto-info reveal">
+        <a href="https://wa.me/573180730061?text=Hola!%20Vi%20tu%20portafolio%20y%20quiero%20cotizar%20un%20show" target="_blank" class="contacto-item">
+          <span class="contacto-item-icon">📲</span>
+          <div>
+            <p class="contacto-item-label">WhatsApp principal</p>
+            <p class="contacto-item-value">314 768 7828</p>
+          </div>
+        </a>
+        <a href="https://wa.me/573147687828?text=Hola!%20Vi%20el%20portafolio%20de%20Jeffry%20Percusion" target="_blank" class="contacto-item">
+          <span class="contacto-item-icon">📞</span>
+          <div>
+            <p class="contacto-item-label">Teléfono alterno</p>
+            <p class="contacto-item-value">314 768 7828</p>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/jeffrypercusion" target="_blank" class="contacto-item">
+          <span class="contacto-item-icon">📸</span>
+          <div>
+            <p class="contacto-item-label">Instagram</p>
+            <p class="contacto-item-value">@jeffrypercusion</p>
+          </div>
+        </a>
+        <div class="contacto-item" style="cursor:default;">
+          <span class="contacto-item-icon">📍</span>
+          <div>
+            <p class="contacto-item-label">Ubicación</p>
+            <p class="contacto-item-value">Cali, Colombia</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMULARIO WHATSAPP -->
+      <div class="reveal">
+        <form class="contacto-form" id="form-contacto">
+          <div class="form-group">
+            <label class="form-label">Tu nombre</label>
+            <input type="text" class="form-input" id="f-nombre" placeholder="¿Cómo te llamas?" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Tipo de evento</label>
+            <select class="form-select form-input" id="f-evento">
+              <option value="Cumpleaños">Cumpleaños</option>
+              <option value="Matrimonio">Matrimonio</option>
+              <option value="Evento empresarial">Evento empresarial</option>
+              <option value="Discoteca / bar">Discoteca / bar</option>
+              <option value="Fiesta privada">Fiesta privada</option>
+              <option value="Otro">Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Paquete de interés</label>
+            <select class="form-select form-input" id="f-paquete">
+              <option value="Basic ($180.000)">Basic – $180.000</option>
+              <option value="Pro ($2.600.000)">Pro – Desde $2.600.000</option>
+              <option value="Plus ($4.900.000)">Plus – Desde $4.900.000</option>
+              <option value="No sé aún, quiero cotizar">Todavía no sé, quiero cotizar</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensaje adicional</label>
+            <textarea class="form-textarea" id="f-mensaje" placeholder="Fecha, lugar, número de invitados..."></textarea>
+          </div>
+          <button type="button" class="form-btn" onclick="enviarWhatsApp()">Enviar por WhatsApp 📲</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p class="footer-logo">Jeffry Percusión</p>
+  <p class="footer-tagline">Timbalero caleño · Shows de percusión latina</p>
+  <div class="footer-social">
+    <a href="https://www.instagram.com/jeffrypercusion" target="_blank">📸 @jeffrypercusion</a>
+    <a href="https://wa.me/573180730061" target="_blank">💬 WhatsApp</a>
+  </div>
+  <p class="footer-copy">© 2025 Jeffry Percusión · Cali, Colombia · Todos los derechos reservados</p>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573180730061?text=Hola!%20Quiero%20cotizar%20un%20show%20de%20Jeffry%20Percusion" class="whatsapp-btn" target="_blank" title="Cotizar por WhatsApp">💬</a>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  revealEls.forEach(el => observer.observe(el));
+
+  // Form WhatsApp
+  function enviarWhatsApp() {
+    const nombre = document.getElementById('f-nombre').value.trim();
+    const evento = document.getElementById('f-evento').value;
+    const paquete = document.getElementById('f-paquete').value;
+    const mensaje = document.getElementById('f-mensaje').value.trim();
+    if (!nombre) { alert('Por favor ingresa tu nombre.'); return; }
+    const texto = `Hola! Soy *${nombre}*.\n\n🎉 *Tipo de evento:* ${evento}\n📦 *Paquete de interés:* ${paquete}\n💬 *Mensaje:* ${mensaje || 'Sin mensaje adicional.'}\n\nQuiero cotizar un show con Jeffry Percusión.`;
+    window.open('https://wa.me/573180730061?text=' + encodeURIComponent(texto), '_blank');
+  }
+</script>
+</body>
+</html>
