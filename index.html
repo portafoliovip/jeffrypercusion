@@ -251,17 +251,20 @@
   /* ===== PAQUETES ===== */
   .paquetes-bg { background: var(--negro); }
 
+  /* Sección más ancha para que quepan 4 paquetes */
+  .paquetes-bg .section { max-width: 1320px; }
+
   .paquetes-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
     margin-top: 56px;
   }
 
   .paquete-card {
     background: var(--negro2);
     border: 1px solid rgba(201,151,10,0.2);
-    padding: 40px 32px;
+    padding: 40px 26px;
     position: relative;
     overflow: hidden;
     transition: border-color 0.2s, transform 0.2s;
@@ -328,7 +331,7 @@
 
   .precio-valor {
     font-family: 'Playfair Display', serif;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
     color: var(--dorado-claro);
     line-height: 1.1;
@@ -816,15 +819,15 @@
         <a href="https://wa.me/573180730061?text=Hola!%20Me%20interesa%20el%20paquete%20BASIC" target="_blank" class="paquete-cta">Contratar Basic</a>
       </div>
 
-      <!-- PRO -->
+      <!-- MEDIUM (intermedio) -->
       <div class="paquete-card featured reveal">
         <span class="paquete-badge">Más Popular</span>
-        <p class="paquete-nombre">Pro</p>
-        <p class="paquete-ideal">Más energía y experiencia para tu evento</p>
+        <p class="paquete-nombre">Medium</p>
+        <p class="paquete-ideal">El equilibrio perfecto entre ritmo y presupuesto</p>
         <div class="paquete-precio">
-          <p class="precio-desde">Desde</p>
-          <p class="precio-valor">$2.600.000 COP</p>
-          <p class="precio-nota">🎵 1 set de 5 canciones en vivo</p>
+          <p class="precio-desde">Valor</p>
+          <p class="precio-valor">$900.000 COP</p>
+          <p class="precio-nota">🎵 1 set de 8 canciones en vivo</p>
         </div>
         <div class="paquete-divider"></div>
         <ul class="paquete-incluye">
@@ -834,7 +837,30 @@
           <li><span class="check">✦</span>Repertorio salsa</li>
           <li><span class="check">✦</span>Ambiente bailable y animación</li>
           <li><span class="check">✦</span>Sonido profesional (cabinas)</li>
-          <li><span class="check">✦</span>Pareja de bailarines</li>
+        </ul>
+        <p style="margin-top:20px; font-size:12px; font-style:italic; color:rgba(245,240,232,0.35);">Ideal para fiestas privadas, cumpleaños y celebraciones con ambiente bailable.</p>
+        <a href="https://wa.me/573180730061?text=Hola!%20Me%20interesa%20el%20paquete%20MEDIUM" target="_blank" class="paquete-cta">Contratar Medium</a>
+      </div>
+
+      <!-- PRO -->
+      <div class="paquete-card reveal">
+        <p class="paquete-nombre">Pro</p>
+        <p class="paquete-ideal">Más energía y experiencia para tu evento</p>
+        <div class="paquete-precio">
+          <p class="precio-desde">Desde</p>
+          <p class="precio-valor">$2.600.000 COP</p>
+          <p class="precio-nota">🎵 1 set de 8 canciones en vivo</p>
+        </div>
+        <div class="paquete-divider"></div>
+        <ul class="paquete-incluye">
+          <li><span class="check">✦</span>Orquesta formato base (rítmico)</li>
+          <li><span class="check">✦</span>Conga, timbal y bongó</li>
+          <li><span class="check">✦</span>2 cantantes en vivo</li>
+          <li><span class="check">✦</span>1 set musical en vivo</li>
+          <li><span class="check">✦</span>Repertorio salsa</li>
+          <li><span class="check">✦</span>Ambiente bailable y animación</li>
+          <li><span class="check">✦</span>Sonido profesional (cabinas)</li>
+          <li><span class="check">✦</span>Pareja de bailarines (Opcional)</li>
         </ul>
         <p style="margin-top:20px; font-size:12px; font-style:italic; color:rgba(245,240,232,0.35);">Ideal para fiestas privadas, eventos empresariales y celebraciones sociales.</p>
         <a href="https://wa.me/573180730061?text=Hola!%20Me%20interesa%20el%20paquete%20PRO" target="_blank" class="paquete-cta">Contratar Pro</a>
@@ -847,7 +873,7 @@
         <div class="paquete-precio">
           <p class="precio-desde">Desde</p>
           <p class="precio-valor">$4.900.000 COP</p>
-          <p class="precio-nota">🎵 1 set de 5 canciones en vivo</p>
+          <p class="precio-nota">🎵 1 set de 8 canciones en vivo</p>
         </div>
         <div class="paquete-divider"></div>
         <ul class="paquete-incluye">
@@ -859,7 +885,7 @@
           <li><span class="check">✦</span>Repertorio salsa + crossover</li>
           <li><span class="check">✦</span>Animación e interacción con el público</li>
           <li><span class="check">✦</span>Sonido profesional</li>
-          <li><span class="check">✦</span>Pareja de bailarines</li>
+          <li><span class="check">✦</span>Pareja de bailarines (Opcional)</li>
         </ul>
         <p style="margin-top:20px; font-size:12px; font-style:italic; color:rgba(245,240,232,0.35);">Perfecto para empresariales, discotecas, lanzamientos y celebraciones premium.</p>
         <a href="https://wa.me/573180730061?text=Hola!%20Me%20interesa%20el%20paquete%20PLUS" target="_blank" class="paquete-cta">Contratar Plus</a>
@@ -975,6 +1001,7 @@
             <label class="form-label">Paquete de interés</label>
             <select class="form-select form-input" id="f-paquete">
               <option value="Basic ($180.000)">Basic – $180.000</option>
+              <option value="Medium ($900.000)">Medium – $900.000</option>
               <option value="Pro ($2.600.000)">Pro – Desde $2.600.000</option>
               <option value="Plus ($4.900.000)">Plus – Desde $4.900.000</option>
               <option value="No sé aún, quiero cotizar">Todavía no sé, quiero cotizar</option>
